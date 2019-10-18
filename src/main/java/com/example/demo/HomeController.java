@@ -38,20 +38,26 @@ public class HomeController {
         model.addAttribute("user", userRepository.findAll());
         return "accountform";
     }
+    @GetMapping("/transactionform")
+    public String transactionform(Model model){
+        model.addAttribute("transaction", new Transaction());
+        model.addAttribute("accounts", accountRepository.findAll());
+        return "transactionform";
+    }
 
     //    mapping to create user
-    @PostMapping("/createuser")
-    public String createUser(@Valid User user,
+    @PostMapping("/processuser")
+    public String processUser(@Valid User users,
                              BindingResult result){
         if(result.hasErrors()){
             return "userform";
         }
-        userRepository.save(user);
+        userRepository.save(users);
         return "redirect:/";
 
     }
-    @PostMapping("/createaccount")
-    public String createAccount(@Valid Account account,
+    @PostMapping("/accountform")
+    public String processAccount(@Valid Account account,
                                 BindingResult result){
         if(result.hasErrors()){
             return "accountform";

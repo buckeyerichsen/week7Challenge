@@ -27,7 +27,7 @@
     </ul>
 </nav>
 <h1>Account Form</h1>
-<form action="#" th:action="@{/createaccount}" th:object="${account}" method="post">
+<form action="#" th:action="@{/accountform}" th:object="${account}" method="post">
     <input type="hidden" th:field="*{accountid}" />
     Account Number :<input type="text" th:field="*{accountnumber}" />
     <span th:if="${#fields.hasErrors('accountnumber')}"
@@ -39,7 +39,7 @@
 <!--    <span th:if="${#fields.hasErrors('amount')}"-->
 <!--          th:errors="*{amount}"></span><br/>-->
     <select name="user" th:field="*{user}">
-        <option th:each="user :${user}" th:value="${user.email}"
+        <option th:each="user :${user}" th:value="${user.userid}"
                 th:text="${user.email}">
 
         </option>
