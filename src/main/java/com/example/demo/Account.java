@@ -11,6 +11,7 @@ public class Account {
     private String accountnumber;
     private String accountbalance;
     private double amount;
+    private String password;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -66,5 +67,13 @@ public class Account {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

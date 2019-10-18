@@ -59,6 +59,11 @@
         <td th:text="${account.accountnumber}">
         <td th:text="${account.accountbalance}">
         </td>
+        <ul>
+            <div th:each="transaction : ${account.transactions}">
+                <li th:inline="text"><b>[[${transaction.deposit}]]</b></li>
+            </div>
+        </ul>
     </tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
