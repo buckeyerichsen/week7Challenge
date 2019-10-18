@@ -59,6 +59,7 @@
         <td th:text="${account.accountnumber}">
         <td th:text="${account.accountbalance}">
         </td>
+        <br/>
         <ul>
             <div th:each="transaction : ${account.transactions}">
                 <li th:inline="text"><b>[[${transaction.deposit}]]</b></li>
